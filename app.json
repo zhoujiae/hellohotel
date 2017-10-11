@@ -11,7 +11,7 @@
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fe3131",
-    "navigationBarTitleText": "周恒",
+    "navigationBarTitleText": "酒店预订",
     "navigationBarTextStyle": "white"
   },
   "tabBar": {

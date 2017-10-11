@@ -11,7 +11,7 @@
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fe3131",
-    "navigationBarTitleText": "酒店预订",
+    "navigationBarTitleText": "酒店",
     "navigationBarTextStyle": "white"
   },
   "tabBar": {

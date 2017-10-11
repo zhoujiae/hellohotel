@@ -1,0 +1,87 @@
+<import src="../../../wxParse/wxParse.wxml"/>
+<view class="container">
+<!--轮播图-->
+  <swiper class="swiper" indicator-dots="true"
+  autoplay="true" interval="2000" duration="1000" circular="true">
+  <view class="hotel_name" style="color: white;position: absolute;bottom: 10rpx;left: 0;z-index: 10;margin-left:10rpx">{{hotelinfo.name}}</view>
+  <block wx:for="{{lunbolist}}">
+    <swiper-item>
+      <image src="{{item.h_photo}}" class="slide-image"/>
+    </swiper-item>
+  </block>
+  </swiper>
+  <!--精选推荐-->
+  <view class="rqxm">
+       <view class="title">
+         <text class="font_style xueyuan_top_left">精选推荐</text>
+         <text class="font_style xueyuan_top_right" bindtap="go_book">更多 ></text>
+       </view>
+       <view class="rqxm_content">
+         <view class="rqxm_list" wx:for="{{housefenlei}}" data-id="{{item.id}}" bindtap="go_roomdetail">     
+          <view class="img">
+            <image src="{{item.img}}"></image>
+          </view>
+          <view class="introduce">
+            <text>{{item.guest_id}}</text>
+          </view>
+       </view>
+       </view>
+    </view>
+    <!--评价 酒店介绍--> 
+    <view class="navbar">  
+      <text wx:for="{{navbar}}" data-idx="{{index}}" class="item {{currentTab==index ? 'active' : ''}}" wx:key="unique" bindtap="navbarTap">{{item}}</text>  
+    </view>
+    <!--评价-->  
+    <view hidden="{{currentTab!==1}}">  
+      <form bindsubmit="formSubmit">
+        <!-- 多行输入框 -->
+        <view class="predetail">
+          <view class="pre_input">
+            <textarea name="comment" bindblur="bindTextAreaBlur" auto-height placeholder="请输入您的评价信息" />
+          </view>
+        </view>
+        <!--满意度选择-->
+        <radio-group class="predetail1" bindchange="radioChange" name="satisfied">
+          <label wx:for="{{manyi}}">
+            <radio value="{{item.num}}" checked="{{item.checked}}"/>{{item.value}}
+          </label>
+        </radio-group>
+        <button form-type="submit" style="width: 30%;margin: 0 auto 20rpx;background:#fe3131;color:white;">提交评价</button>
+      </form>
+      <!-- 评价列表 -->
+      <view class="evalue">
+        <view style="color:#fe3131;border-bottom:1px solid black;padding: 10rpx 0;font-weight: bolder;">评价信息</view>
+        <view class="evalueinfo" wx:for="{{evalue_list}}" data-index="{{index}}">
+          <view class="info_list">{{index + 1}}.{{item.name}}:
+            <span class="pj">{{item.satisfaction == 1 ? "一般" : item.satisfaction == 2 ? "满意" : item.satisfaction == 3 ? "非常满意" : ""}}</span>
+          </view>
+          <view class="info_info">{{item.info}}</view>
+        </view>
+      </view>
+    </view>     
+    <!--酒店简介-->  
+    <view hidden="{{currentTab!==0}}">  
+      <!--酒店信息介绍-->
+      <view class="hotel_introduce">
+         <view class="hotel_name">{{hotelinfo.name}}</view>
+         <template is="wxParse" data="{{wxParseData:arta.nodes}}">
+           <view class="text">{{hotelinfo.intro}}</view>
+         </template>
+         <map id="map" longitude="{{lng}}" latitude="{{lat}}" scale="14" markers="{{markers}}" bindmarkertap="markertap"  bindregionchange="regionchange" show-location style="margin:40rpx auto;"></map>
+         <view class="hotel_bq">
+        <text class="smallbq">{{hotelinfo.is_show == 1 ? "正常营业" : ""}}</text>
+        <text class="smallbq">{{hotelinfo.is_luggage == 1 ? "可寄放行李" : ""}}</text>
+        <text class="smallbq">{{hotelinfo.is_parking == 1 ? "提供停车服务" : ""}}</text>
+      </view>
+      <view class="hotel_bq">
+      <text class="smallbq">{{hotelinfo.is_restaurant == 1 ? "提供餐厅" : ""}}</text>
+        <text class="smallbq">{{hotelinfo.is_wifi == 1 ? "无线服务" : ""}}</text>
+      </view>
+        <view class="time time1">开业时间：{{opentime}}</view>
+        <view class="time">装修时间：{{detime}}</view>
+        <view class="hotel_address" bindtap="bindgothere">地址：{{hotelinfo.province}}{{hotelinfo.city}}{{hotelinfo.district}}{{hotelinfo.address}}<image src="../../../images/map.png" style="width: 30rpx;height: 30rpx;"></image></view>
+        <view class="hotel_phone">订房热线：{{hotelinfo.phone}}</view>
+      </view>
+    </view>     
+</view>
+

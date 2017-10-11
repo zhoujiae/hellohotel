@@ -1,0 +1,47 @@
+{
+  "pages": [
+    "pages/hotel/home/home",
+    "pages/hotel/book/book",
+    "pages/hotel/mine/mine",
+    "pages/hotel/home/detail/roomdetail/roomdetail",
+    "pages/hotel/book/detail/roomdetail/roomdetail",
+    "pages/hotel/mine/orderdetail/orderdetail",
+    "pages/logs/logs"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fe3131",
+    "navigationBarTitleText": "周恒",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/hotel/home/home",
+        "text": "首页",
+        "iconPath": "images/home.png",
+        "selectedIconPath": "images/home1.png"
+      },
+      {
+        "pagePath": "pages/hotel/book/book",
+        "text": "预订",
+        "iconPath": "images/book.png",
+        "selectedIconPath": "images/book1.png"
+      },
+      {
+        "pagePath": "pages/hotel/mine/mine",
+        "text": "我的",
+        "iconPath": "images/mine.png",
+        "selectedIconPath": "images/mine1.png"
+      }
+    ],
+    "color": "#bfbfbf",
+    "selectedColor": "#fe3131",
+    "backgroundColor": "white"
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  },
+  "debug": true
+}

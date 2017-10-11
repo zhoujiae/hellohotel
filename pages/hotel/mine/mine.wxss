@@ -1,0 +1,123 @@
+/**index.wxss**/
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 400rpx;
+  background: #fe3131;
+}
+
+.userinfo-avatar {
+  width: 100%;
+  text-align: center;
+  margin-top: 50rpx;
+}
+.userinfo-image {
+  width: 128rpx;
+  height: 128rpx;
+  border-radius: 50%;
+}
+.userinfo-nickname {
+  color: white;
+}
+.font_style {
+  font-size: 35rpx;
+  font-weight: bolder;
+}
+.xueyuan_top_left {
+  float: left;
+  border-left: 6rpx solid #d81e06;
+}
+.xueyuan_top_right {
+  float: right;
+  transform: rotate(90deg) translateY(20rpx);
+}
+.title {
+  width: 95%;
+  margin: 0 auto;
+  padding: 20rpx 0;
+  overflow: hidden;
+  border-bottom: 2rpx solid gray;
+}
+/*选项卡*/
+.navbar{  
+  flex: none;  
+  display: flex;   
+  width: 96%;
+  margin: 0 auto;
+}
+.navbar .item{  
+  position: relative;  
+  flex: auto;  
+  text-align: center;  
+  line-height: 80rpx;  
+  font-size: 30rpx;
+  font-weight: bolder;
+}
+.navbar .item.active{  
+  color: #fe3131;  
+}  
+.navbar .item.active:after{  
+  content: "";  
+  display: block;  
+  position: absolute;  
+  bottom: 0;  
+  left: 0;  
+  right: 0;  
+  height: 4rpx;  
+  background: #FFCC00;  
+}
+/**/
+.ordername {
+  font-weight: bolder;
+  font-size: 30rpx;
+  padding: 10rpx 0;
+}
+.orderinfo {
+  color: gray;
+  padding-right: 20rpx;
+  font-size: 30rpx;
+}
+.orderinfo1 {
+  color: #fe3131;
+  padding-right: 20rpx;
+  font-size: 30rpx;
+}
+.orderlist {
+  width:94%;
+  margin:0 auto;  
+  position:relative;
+  border-bottom:1rpx solid lightgray;
+  background:white;
+  border-radius:10rpx;
+  padding:10rpx 15rpx;
+  margin-bottom:5rpx;
+}
+.xq {
+  position: absolute;
+  color: gray;
+  font-weight: bolder;
+  top: 40%;
+  right: 2%;
+}
+.order_info {
+  float: left;
+}
+.pay_info {
+  float: right;
+  margin-right:20rpx;
+}
+.personinfo {
+  padding-right:20rpx;
+  font-size:30rpx;
+}
+page {
+  background: #F5F5F5;
+}
+/*显示隐藏*/
+.bright789_view_hide{
+ display: block;
+}
+.bright789_view_show{
+ display: none;
+}

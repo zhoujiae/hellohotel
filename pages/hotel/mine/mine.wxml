@@ -1,0 +1,63 @@
+<!--index.wxml-->
+<view class="container">
+  <view  bindtap="bindViewTap" class="userinfo">
+    <view class="userinfo-avatar">
+      <image class="userinfo-image" src="{{userInfo.avatarUrl}}"></image>
+    </view>
+    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+  </view>
+  <view class="title" bindtap="onChangeShowState">
+    <text class="font_style xueyuan_top_left">{{showView?'我的订单':'我的订单'}}</text>
+    <text class="font_style xueyuan_top_right"> ></text>
+  </view>
+</view>
+<view class="{{showView?'bright789_view_show':'bright789_view_hide'}}">
+  <!--订单分类--> 
+    <view class="navbar">  
+      <text wx:for="{{navbar}}" data-idx="{{index}}" class="item {{currentTab==index ? 'active' : ''}}" wx:key="unique" bindtap="navbarTap">{{item}}</text>  
+    </view>
+    <!--未支付-->  
+    <view hidden="{{currentTab!==0}}" class="container list">  
+      <view class="orderlist" wx:for="{{orderlistNo}}" bindtap="go_orderdetail" data-id="{{item.id}}" data-index="{{index}}">
+        <view style="overflow: hidden;">
+          <view class="order_info">
+            <view class="ordername">{{index + 1}}.{{item.guest_id}}</view>
+            <view class="orderinfo">{{item.order_time}}</view >
+          </view>
+          <view class="pay_info">
+            <view class="ordername">¥{{item.pay_price}}</view>
+            <view class="orderinfo1">未支付</view>
+          </view>
+        </view>
+        <view>
+          <text class="personinfo">姓名：{{item.name}}</text>
+          <text class="personinfo">联系方式：{{item.phone}}</text>
+        </view>
+        <view class="xq" data-index="{{index}}">></view>
+      </view>
+    </view>     
+    <!--已支付-->  
+    <view hidden="{{currentTab!==1}}" class="container list">  
+      <view class="orderlist" wx:for="{{orderlistYes}}" data-index="{{index}}" bindtap="go_orderdetail" data-id="{{item.id}}">
+        <view style="overflow: hidden;">
+          <view class="order_info">
+            <view class="ordername">{{index + 1}}.{{item.guest_id}}</view>
+            <view class="orderinfo">{{item.order_time}}</view >
+          </view>
+          <view class="pay_info">
+            <view class="ordername">¥{{item.pay_price}}</view>
+            <view class="orderinfo">已支付</view>
+          </view>
+        </view>
+        <view>
+          <text class="personinfo">姓名：{{item.name}}</text>
+          <text class="personinfo">电话：{{item.phone}}</text>
+        </view>
+        <view class="xq" data-index="{{index}}">></view>
+      </view>
+    </view>
+</view>
+<view>
+  <view style="font-size: 28rpx;text-align: center;padding-top:50rpx;">{{yname.errMsg.banquan}}提供技术支持      </view>
+  <view style="font-size: 28rpx;text-align: center;padding-bottom:50rpx;">{{yname.errMsg.url}}</view>
+</view>

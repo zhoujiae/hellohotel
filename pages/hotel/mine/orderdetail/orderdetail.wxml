@@ -1,0 +1,31 @@
+<view class="container">
+  <view class="order">
+    <view class="title">
+      <text class="font_style xueyuan_top_left">订单信息</text>
+      <text class="font_style xueyuan_top_right" bindtap="go_book">总金额¥{{orderdetail.pay_price}}</text>
+    </view>
+    <view class="orderstate">订单状态:<span style="color: #fe3131;font-weight: bolder;">{{orderdetail.state == 0 ? "未支付" : "已支付"}}</span></view>
+    <view class="orderstate">订单号:<span class="sspan">{{orderdetail.out_trade_no}}</span></view>
+    <view class="orderstate">订单创建时间:<span class="sspan">{{orderdetail.order_time}}</span></view>
+    <view class="orderstate">姓名:<span class="sspan">{{orderdetail.name}}</span></view>
+    <view class="orderstate">联系方式:<span class="sspan">{{orderdetail.phone}}</span></view>
+  </view>
+  <view class="order">
+    <view class="title">
+      <text class="font_style xueyuan_top_left">房间信息</text>
+      <text class="font_style xueyuan_top_right" bindtap="go_book">{{roomdetail.guest_id}}{{orderdetail.room_num}}间</text>
+    </view>
+    <view class="orderstate">
+      <span style="color: #fe3131;font-weight: bolder;margin-right: 15rpx;">{{roomdetail.is_tj == 1 ? "推荐" : ""}}</span>
+      <span style="color: #fe3131;font-weight: bolder;margin-right: 15rpx;">{{roomdetail.is_wifi == 1 ? "无线上网" : ""}}</span>
+      <span style="color: #fe3131;font-weight: bolder;">{{roomdetail.is_window == 1 ? "有窗" : ""}}</span>
+    </view>
+    <view class="orderstate">房间大小:<span class="sspan">{{roomdetail.area}}m²</span></view>
+    <view class="orderstate">楼层:<span class="sspan">{{roomdetail.floor}}楼</span></view>
+    <view class="orderstate">剩余数量:<span class="sspan">{{roomdetail.else_num}}间</span></view>
+    <view class="orderstate">入住时间:<span class="sspan">{{orderdetail.check_in}}至{{orderdetail.leave_out}}</span></view>
+    <view class="orderstate" bindtap="formSubmit"><button style="color: white;font-weight: bolder;background:#fe3131;border-radius:10rpx;">{{orderdetail.state == 0 ? "立即支付" : ""}}</button></view>
+  </view>
+  <!--遮罩层-->
+  <view class="commodity_screen" wx:if="{{showModalStatus}}"></view>
+</view>

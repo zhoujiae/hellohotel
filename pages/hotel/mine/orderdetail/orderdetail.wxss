@@ -1,0 +1,47 @@
+.container {
+  width: 96%;
+  margin: 20rpx auto 0;
+}
+.title {
+  overflow: hidden;
+}
+.font_style {
+  font-size: 30rpx;
+  font-weight: bolder;
+}
+.xueyuan_top_left {
+  float: left;
+}
+.xueyuan_top_right {
+  float: right;
+}
+.orderstate {
+  color: gray;
+  font-size: 30rpx;
+  margin-top: 20rpx;
+  font-weight: bolder;
+}
+page {
+  background: #F8F8FF;
+}
+.sspan {
+  font-weight: bolder;
+}
+.order {
+  background: white;
+  border: 1rpx solid lightgray;
+  padding: 20rpx 10rpx;
+  border-radius:10rpx;
+}
+.commodity_screen {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: 0.4;
+  overflow: hidden;
+  z-index: 1000;
+  color: #fff;
+}
